@@ -12,24 +12,14 @@
 
 #include "get_next_line.h"
 
-void	delnode(t_list **lst, t_list *line)
+void	*ft_setzero(char *s, int n)
 {
-	t_list	*temp;
+	char	*str;
 
-	temp = *lst;
-	if (*lst == line)
-	{
-		*lst = line->next;
-	}
-	else
-	{
-		while (temp->next != line)
-			temp = temp->next;
-		temp->next = line->next;
-	}
-	free(line->content);
-	free(line);
-	line = NULL;
+	str = s;
+	while (n-- > 0)
+		*str++ = 0;
+	return (s);
 }
 
 int	ft_strchr_num(char *s, int c)
